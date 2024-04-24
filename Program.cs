@@ -40,14 +40,38 @@ class Program
 
                 case "1":
                     Console.WriteLine("button1_Click");
-                    var componentA = new ComponentA(_textCase);
-                    Console.WriteLine(componentA.GetData());
+
+                    var componentA = new ComponentA();
+                    string valueA = componentA.GetData();
+
+                    if (_textCase.Contains("Upper"))
+                    {
+                        valueA = valueA.ToUpper();
+                    }
+                    else if (_textCase.Contains("Lower"))
+                    {
+                        valueA = valueA.ToLower();
+                    }
+
+                    Console.WriteLine(valueA);
 
                     break;
                 case "2":
                     Console.WriteLine("button2_Click");
-                    var componentB = new ComponentB(_textCase);
-                    Console.WriteLine(componentB.GetData());
+
+                    var componentB = new ComponentB();
+                    string valueB = componentB.GetData();
+
+                    if (_textCase.Contains("Upper"))
+                    {
+                        valueB = valueB.ToUpper();
+                    }
+                    else if (_textCase.Contains("Lower"))
+                    {
+                        valueB = valueB.ToLower();
+                    }
+
+                    Console.WriteLine(valueB);
                     break;
 
                 default:
