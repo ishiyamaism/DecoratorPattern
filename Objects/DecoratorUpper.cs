@@ -1,22 +1,14 @@
 ﻿namespace DecoratorPattern.Objects;
 
-// １．同じインターフェースの実装にする
-public sealed class DecoratorUpper : IComponent
+// 具象クラス
+public sealed class DecoratorUpper : Decorator
 {
-  // ２．同じインターフェースを保持する
-  private IComponent _child;
-
-  // ３．コンストラクタで子階層を受ける
-  public DecoratorUpper(IComponent child)
+  public DecoratorUpper(IComponent child) : base(child)
   {
-    _child = child;
   }
 
-  // ４．_childを使って実装(拡張)する
-  public string GetData()
+  protected override string GetDataSub()
   {
     return _child.GetData().ToUpper();
   }
-
-  // 元のGetData()には何の影響もない。
 }

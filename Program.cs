@@ -54,7 +54,7 @@ class Program
                         componentA = new DecoratorLower(componentA);
                     }
 
-                    // いずれにしても実行メソッドは同じ。
+                    // いずれにしても実行メソッドは同じとなる。
                     string valueA = componentA.GetData();
                     Console.WriteLine(valueA);
 
