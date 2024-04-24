@@ -41,41 +41,15 @@ class Program
                 case "1":
                     Console.WriteLine("button1_Click");
 
-                    // IComponentインターフェースにて変数宣言し、
-                    IComponent componentA = new ComponentA();
-
-                    // 必要ならばデコレートする。
-                    if (_textCase.Contains("Upper"))
-                    {
-                        componentA = new DecoratorUpper(componentA);
-                    }
-                    else if (_textCase.Contains("Lower"))
-                    {
-                        componentA = new DecoratorLower(componentA);
-                    }
-
-                    // いずれにしても実行メソッドは同じとなる。
-                    string valueA = componentA.GetData();
-                    Console.WriteLine(valueA);
-
+                    // この場合は ComponentA インスタンスを利用
+                    Console.WriteLine(_stateContext.GetComponentData(new ComponentA()));
                     break;
+
                 case "2":
                     Console.WriteLine("button2_Click");
 
-                    IComponent componentB = new ComponentB();
-
-                    if (_textCase.Contains("Upper"))
-                    {
-                        componentB = new DecoratorUpper(componentB);
-                    }
-                    else if (_textCase.Contains("Lower"))
-                    {
-                        componentB = new DecoratorLower(componentB);
-                    }
-
-                    string valueB = componentB.GetData();
-                    Console.WriteLine(valueB);
-
+                    // この場合は ComponentB インスタンスを利用
+                    Console.WriteLine(_stateContext.GetComponentData(new ComponentB()));
                     break;
 
                 default:

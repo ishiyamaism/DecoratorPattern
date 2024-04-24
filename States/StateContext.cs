@@ -1,3 +1,5 @@
+using DecoratorPattern.Objects;
+
 namespace DecoratorPattern.States;
 // 状態管理のためのクラス
 public sealed class StateContext
@@ -24,4 +26,21 @@ public sealed class StateContext
     return _state.GetStateText();
   }
 
+  public string GetComponentData(IComponent component)
+  {
+    string textCase = GetText();
+
+    // 必要ならばデコレートする。
+    if (textCase.Contains("Upper"))
+    {
+      component = new DecoratorUpper(component);
+    }
+    else if (textCase.Contains("Lower"))
+    {
+      component = new DecoratorLower(component);
+    }
+
+    // いずれにしても実行メソッドは同じとなる。
+    return component.GetData();
+  }
 }
